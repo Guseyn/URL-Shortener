@@ -11,11 +11,17 @@ import javax.persistence.Table;
 public class Url {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long id;
+    private int id;
     private String original;
     private String shortened;
 
     protected Url() {
+    }
+
+    public Url(int id, String original, String shortened) {
+        this.id = id;
+        this.original = original;
+        this.shortened = shortened;
     }
 
     public Url(String original, String shortened) {
@@ -30,7 +36,7 @@ public class Url {
             id, original, shortened);
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
