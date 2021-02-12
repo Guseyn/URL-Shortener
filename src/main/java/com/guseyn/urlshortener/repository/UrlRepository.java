@@ -4,9 +4,8 @@ import com.guseyn.urlshortener.domain.Url;
 import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 
-public interface UrlRepository extends CrudRepository<Url, Long> {
+public interface UrlRepository extends CrudRepository<Url, Integer> {
     List<Url> findAll();
-    Url findByShortened(String original);
-    Url save(String original, String shortened);
-    Url save(Url url);
+    Url findByShortened(String shortened);
+    Url findByOriginal(String original);
 }

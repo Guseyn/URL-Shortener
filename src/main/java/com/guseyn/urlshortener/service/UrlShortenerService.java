@@ -1,10 +1,7 @@
 package com.guseyn.urlshortener.service;
 
-import org.springframework.stereotype.Service;
-
-@Service
 public class UrlShortenerService {
-    public String idToShortURL(int n) {
+    public static String idToShortURL(int n) {
         final char[] map = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".toCharArray();
         final StringBuilder shortUrl = new StringBuilder();
         final int mapSize = map.length;

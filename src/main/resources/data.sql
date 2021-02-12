@@ -7,4 +7,4 @@ CREATE TABLE urls (
 );
 
 INSERT INTO urls (original, shortened) VALUES
-  ('https://guseyn.com/posts/type-is-not-source-of-behaviour?v=1.0.227', 'http://localhost:8080/short1');
+  ('https://guseyn.com/posts/type-is-not-source-of-behaviour?v=1.0.227', 'http://localhost:8080/r/a');

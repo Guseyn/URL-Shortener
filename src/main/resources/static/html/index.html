@@ -1,1 +1,54 @@
-index page
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <title>Url Shortener</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Guseyn">
+    <link rel="stylesheet" href="/../css/normalize.css" type="text/css">
+    <link rel="stylesheet" href="/../css/main.css" type="text/css">
+    <script src="/../js/ehtml.bundle.min.js" type="text/javascript"></script>
+</head>
+
+<body class="main">
+<div class="base">
+    <e-form
+            data-validation-error-message="Enter correct data into the form, please"
+            data-validation-error-class-for-message-box="form-message-error">
+        <input
+                type="url"
+                name="value"
+                placeholder="Original URL"
+                required
+                data-validation-pattern="url"
+                data-validation-bad-format-error-message="This is not proper url"
+                data-validation-absence-error-message="Url is required"
+                data-validation-error-class-for-element="elm-error"
+                data-validation-error-class-for-message-box="message-error">
+        <button
+                data-request-url="/../url/shorten"
+                data-request-method="POST"
+                data-request-headers='{ "Content-Type": "application/json" }'
+                data-ajax-icon=".ajax-icon"
+                onclick="this.form.submit(this)"
+                data-response-name="response"
+                data-actions-on-response="
+                    logToConsole('${response.body}');
+                    mapToTemplate('${response}', '#response-template');
+                ">
+            SHORTEN URL
+        </button>
+        <img class="ajax-icon" src="/../images/ajax-icon.svg"/>
+    </e-form>
+    <div id="new-shorten-url-pre-box"></div>
+    <template is="e-reusable" id="response-template" data-prepend-to="#new-shorten-url-pre-box" data-object-name="response">
+        <div class="response-info">
+            <div>
+                <b>Shortened Url:</b><br>
+                <a href="${response.body.shortened}" data-text="${response.body.shortened}"></a>
+            </div>
+        </div>
+    </template>
+</div>
+</body>
+</html>
