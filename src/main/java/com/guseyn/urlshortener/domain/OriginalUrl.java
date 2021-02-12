@@ -1,9 +1,11 @@
 package com.guseyn.urlshortener.domain;
 
-public class OriginalUrl {
+import java.io.Serializable;
+
+public class OriginalUrl implements Serializable {
     private String value;
 
-    protected OriginalUrl() {}
+    public OriginalUrl() {}
 
     public OriginalUrl(final String value) {
         this.value = value;
